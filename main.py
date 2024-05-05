@@ -98,9 +98,7 @@ def main():
         tick_start = time.time()
         if tick % 1 == 0 and not paused:
             world.update()
-            tick_end = time.time()
-        else:
-            tick_end = time.time()
+        tick_end = time.time()
             
         screen.fill((0,0,0))
         world.render(cam)
