@@ -84,6 +84,11 @@ def main():
                         drawer.mode = 0
                 elif e.key == pygame.K_SPACE:
                     paused = not paused
+            elif e.type == pygame.MOUSEWHEEL:
+                if e.y == 1:
+                    cam.ch_scale(3)
+                elif e.y == -1:
+                    cam.ch_scale(-3)
         if not running:
             break
         if drawer.mode == 0:
