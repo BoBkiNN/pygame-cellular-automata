@@ -12,6 +12,7 @@ font = pygame.font.Font(None, 36)
 info = pygame.display.Info()
 WORLD_SIZES = (100,100)
 SCREEN_SIZES = (info.current_w, info.current_h)
+bounded_world = True
 
 def main():
     tick = 0
@@ -20,8 +21,7 @@ def main():
     running = True
     
     BTN_COL2 = (25, 25, 25)
-    #world = World(screen, WORLD_SIZES)
-    world = World(screen, None)
+    world = World(screen, WORLD_SIZES if bounded_world else None)
     cam = Camera(SCREEN_SIZES)
     drawer = Drawer(cam)
     pause_btn = pygame.Rect(cam.size[0]-100, cam.size[1]//2-130, 100, 100)
@@ -74,7 +74,10 @@ def main():
                 elif e.key == pygame.K_r:
                     paused = True
                     del world
-                    world = World(screen, WORLD_SIZES)
+                    world = World(screen, WORLD_SIZES if bounded_world else None)
+                    cam.x = 0
+                    cam.y = 0
+                    cam.cell_s = 20
                 elif e.key == pygame.K_TAB:
                     drawer.mode += 1
                     if drawer.mode == 3:
