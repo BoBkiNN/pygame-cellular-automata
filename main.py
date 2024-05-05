@@ -82,6 +82,8 @@ def main():
                     drawer.mode += 1
                     if drawer.mode == 3:
                         drawer.mode = 0
+                elif e.key == pygame.K_SPACE:
+                    paused = not paused
         if not running:
             break
         if drawer.mode == 0:
