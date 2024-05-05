@@ -126,6 +126,7 @@ def main():
             pygame.draw.line(screen, BTN_COL2, [draw_btn.right-20, draw_btn.y+20], [draw_btn.x+20, draw_btn.bottom-20], 10)
         tick_delta = tick_end-tick_start
         time_text = str(math.floor(tick_delta*1000))
+        # MSPS - millis per step
         draw_text(screen, f"{cam.x}:{cam.y}; {int(clock.get_fps())} FPS; {world.step}; {time_text} MSPS", [10,10])
         pygame.display.flip()
         clock.tick(60)
